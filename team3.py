@@ -11,7 +11,7 @@ from __future__ import print_function
 
 team_name = 'Cyberchase' # Only 10 chars displayed.
 strategy_name = 'CopyCat'
-strategy_description = 'For the first round it colludes then if the opponent betrayed in the last 10 moves then it will betray, otherwise it will copy the last move of the opponent'
+strategy_description = 'For the first round it colludes then if the opponent betrayed in the last 5 moves then it will betray, otherwise it will copy the last move of the opponent'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -23,7 +23,7 @@ def move(my_history, their_history, my_score, their_score):
     
     if len(my_history) == 0: #first move = 'c'
         return 'c'
-    elif 'b' in their_history[-10:]: # if 'b' in their last 10 moves then return 'b'
+    elif 'b' in their_history[-5:]: # if 'b' in their last 5 moves then return 'b'
         return 'b'
     else:
         return their_history[-1] #otherwise return opponent's last move
